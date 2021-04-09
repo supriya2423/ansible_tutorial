@@ -1,0 +1,15 @@
+---
+ - name:create a playbook to run in linux
+   hosts:localhost
+   become:true
+   gather_facts:false
+   tasks:
+     - name:using yum module
+       yum:
+         install:httpd
+         state:present
+         
+     - name:using service module
+       service:
+         install:httpd
+          state:started
